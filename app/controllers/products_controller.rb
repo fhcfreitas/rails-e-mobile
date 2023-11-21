@@ -4,15 +4,15 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(params[:product])
-    @product.save
+    @product = Product.new(product_params)
+    @product.user = current_user
+    @product.save!
 
-    redirect_to product_path(@restaurant)
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:user_id, :model, :price, :location, :category)
+    params.require(:product).permit(:model, :description, :price, :location, :category, :photo)
   end
 end

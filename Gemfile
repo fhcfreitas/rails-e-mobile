@@ -50,7 +50,10 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "devise"
+
+# gems added for image-upload by Nikolai
 gem "dotenv-rails"
+gem "cloudinary"
 
 
 group :development, :test do
