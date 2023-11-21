@@ -1,0 +1,16 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://eysing.com/wp-content/uploads/2023/06/Eysing-PF40-Home.jpg);">
+  <div class="container">
+    <h1>Rent the right <strong>electric vehicle</strong> to <strong>you</strong>!</h1>
+    <p>Go anywhere with the best electic vehicles on the market</p>
+  </div>
+</div>
+<div class="container">
+  <div class="cards mt-3">
+    <% @products.each do |product| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.irroba.com.br/fit-in/600x600/filters:fill(fff):quality(80)/levbaaia/catalog/e-bike-cruiser/cruiser-preta-lado-alta.jpg)">
+        <%= product.model %>
+      </div>
+    <% end %>
+    </div>
+
+</div>
