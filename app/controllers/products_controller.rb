@@ -1,5 +1,14 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[edit update]
+   before_action :set_product, only: %i[edit update]
+  
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+    @product.user = current_user
+    @product.save!
 
   def index
     @products = Product.all
@@ -18,11 +27,11 @@ class ProductsController < ApplicationController
 
   private
 
+  def product_params
+    params.require(:product).permit(:model, :description, :price, :location, :category, :photo)
+  end
+    
   def set_product
     @product = Product.find(params[:id])
-  end
-
-  def product_params
-    params.require(:product).permit(:model, :description, :price, :location, :category)
   end
 end
