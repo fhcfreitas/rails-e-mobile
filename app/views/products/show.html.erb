@@ -1,6 +1,15 @@
-<div>
-<h2><%= @product.model %></h2>
-<p><%= @product.price %></p>
-<p><%= @product.location %></p>
-<p><%= @product.category%></p>
+<div class="card">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="<%= cl_image_path @product.photo.key, height: 300, crop: :fill %>" class="card-img-top" alt="product">
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h2><%= @product.model %></h2>
+        <p><strong>Price:</strong> <%= @product.price %></p>
+        <p><strong>Location:</strong> <%= @product.location %></p>
+        <p><strong>Category:</strong> <%= @product.category %></p>
+      </div>
+    </div>
+  </div>
 </div>

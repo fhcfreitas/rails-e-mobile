@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-   before_action :set_product, only: %i[edit update]
+  #  before_action :set_product, only: %i[edit update]
 
   def new
     @product = Product.new
@@ -8,7 +8,11 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user = current_user
-    @product.save
+    @product.save!
+  end
+
+  def show
+    @product = Product.find(params[:id])
   end
 
   def index

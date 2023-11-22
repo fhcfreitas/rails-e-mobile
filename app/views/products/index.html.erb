@@ -10,12 +10,17 @@
     <div class="col-9">
       <div class="row">
         <% @products.each do |product| %>
-          <div class="col-3">
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= plant.image_url %>)">
-            <%= product.model %>
-            <%= product.location %>
-            <%= product.price %>
-            </div>
+          <div class="col-3 mb-4">
+            <%= link_to product_path(product), class: "product-link" do %>
+              <div class="card">
+                <img src="<%= cl_image_path product.photo.key, height: 300, crop: :fill %>" class="card-img-top" alt="product">
+                <div class="card-body">
+                  <h5 class="card-title"><%= product.model %></h5>
+                  <p class="card-text"><strong>Location:</strong> <%= product.location %></p>
+                  <p class="card-text"><strong>Price:</strong> <%= product.price %></p>
+                </div>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
