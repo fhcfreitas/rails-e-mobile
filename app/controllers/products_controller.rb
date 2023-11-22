@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  #  before_action :set_product, only: %i[edit update]
+  before_action :set_product, only: %i[edit update show destroy]
 
   def new
     @product = Product.new
@@ -8,12 +8,14 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user = current_user
-    @product.save!
+    if @product.save
+      redirect_to product_path(@product)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
-    @product = Product.find(params[:id])
-
   end
 
   def index
@@ -29,6 +31,11 @@ class ProductsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to products_path, status: :see_other
   end
 
   private
