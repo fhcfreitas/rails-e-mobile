@@ -10,6 +10,10 @@ class ProductsController < ApplicationController
     @product.user = current_user
     @product.save!
 
+  def index
+    @products = Product.all
+  end
+
   def edit
   end
 
