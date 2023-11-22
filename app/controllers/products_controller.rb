@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
    before_action :set_product, only: %i[edit update]
-  
+
   def new
     @product = Product.new
   end
@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:model, :description, :price, :location, :category, :photo)
   end
-    
+
   def set_product
     @product = Product.find(params[:id])
   end
