@@ -12,6 +12,7 @@ class RentalsController < ApplicationController
 
     if @rental.save
       redirect_to products_path
+      flash[:notice] = "Your rental request is submitted. We'll be in touch with you shortly!"
     else
       render :new
     end
