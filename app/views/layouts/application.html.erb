@@ -13,9 +13,9 @@
   <body>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
-</a>
+    <%= link_to products_path do %>
+      <%= image_tag "emobile-logo.png", alt: "logo", width: 130 %>
+    <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,9 +25,12 @@
         <li class="nav-item dropdown">
           <i class="fa-solid fa-bars avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="/users/sign_out">Log out</a>
+              <% if user_signed_in? %>
+                <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+              <% else %>
+                <%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %>
+                <%= link_to "Login", user_session_path, class: "dropdown-item" %>
+              <% end %>
             </div>
         </li>
       </ul>

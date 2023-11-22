@@ -4,12 +4,26 @@
     <p>Go anywhere with the best electic vehicles on the market</p>
   </div>
 </div>
+
 <div class="container">
-  <div class="cards mt-3">
-    <% @products.each do |product| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.irroba.com.br/fit-in/600x600/filters:fill(fff):quality(80)/levbaaia/catalog/e-bike-cruiser/cruiser-preta-lado-alta.jpg)">
-        <%= product.model %>
+  <div class="row mt-3">
+    <div class="col-9">
+      <div class="row">
+        <% @products.each do |product| %>
+          <div class="col-3 mb-4">
+            <%= link_to product_path(product), class: "product-link" do %>
+              <div class="card">
+                <img src="<%= cl_image_path product.photo.key, height: 300, crop: :fill %>" class="card-img-top" alt="product">
+                <div class="card-body">
+                  <h5 class="card-title"><%= product.model %></h5>
+                  <p class="card-text"><strong>Location:</strong> <%= product.location %></p>
+                  <p class="card-text"><strong>Price:</strong> <%= product.price %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
     </div>
+  </div>
 </div>
