@@ -13,3 +13,5 @@ User.create!(email: "user@user.com", password: "123456")
 Product.create!(model: "E-bike Cruiser", price: 150, location: "Rio de Janeiro", category: "Bike", user: owner)
 Product.create!(model: "E-BIKE S", price: 180, location: "Lisbon", category: "Bike", user: owner)
 Product.create!(model: "Branded Fiat 500", price: 399, location: "Berlim", category: "car", user: owner)
+
+Rental.create!(status: "pending", start_date: "2021-11-22", finish_date: "2021-11-25", user: owner, product: Product.first)

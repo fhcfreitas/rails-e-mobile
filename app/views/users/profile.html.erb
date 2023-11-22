@@ -1,0 +1,7 @@
+<!-- FILEPATH: /home/carol/code/carolscliar/rails-e-mobile/app/views/users/profile.html.erb -->
+
+<h1>User Profile</h1>
+<p>Email: <%= @user.email %></p>
+ <%=@user.rents_as_owner.each do |rent|%>
+<p>Start date: <%= rent.start_date %></p>
+ <%end%>
