@@ -55,6 +55,9 @@ gem "devise"
 gem "dotenv-rails"
 gem "cloudinary"
 
+# gems added for datepicker functionality by Nikolai
+gem "bootstrap-datepicker-rails"
+
 
 group :development, :test do
   gem "dotenv-rails"
