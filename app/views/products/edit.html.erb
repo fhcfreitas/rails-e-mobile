@@ -1,0 +1,17 @@
+<div class="container col-4">
+  <div class="info pt-5">
+    <h2 class="mb-4">Edit Product</h2>
+    <div>
+      <%= simple_form_for @product do |f| %>
+        <%= f.input :model, label: "Model Name" %>
+        <%= f.input :description, label: "Description" %>
+        <%= f.input :location, label: "Location" %>
+        <%= f.input :price, label: "Price" %>
+        <%= f.button :submit, class:"btn btn-primary" %>
+      <% end %>
+      <%= link_to products_path do %>
+        <p> <i class="fa-solid fa-rotate-left mt-5"></i>Back to Product</p>
+      <% end %>
+    </div>
+  </div>
+</div>
