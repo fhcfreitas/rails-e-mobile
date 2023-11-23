@@ -24,6 +24,7 @@ class RentalsController < ApplicationController
     @rental.status = "accepted"
     if @rental.save
        flash[:notice] =  "Rental accepted"
+       redirect_to profile_path
     end
   end
 
