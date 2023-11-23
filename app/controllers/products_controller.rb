@@ -22,6 +22,8 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @products = @products.search_by_location_and_category(params[:location]) if params[:location].present?
+    @products = @products.search_by_location_and_category(params[:category]) if params[:category].present?
   end
 
   def edit
