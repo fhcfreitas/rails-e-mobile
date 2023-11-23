@@ -11,47 +11,7 @@
   </head>
 
   <body>
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to products_path do %>
-      <%= image_tag "emobile-logo.png", alt: "logo", width: 130 %>
-    <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item dropdown">
-          <i class="fa-solid fa-bars avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <% if user_signed_in? %>
-                <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-              <% else %>
-                <%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %>
-                <%= link_to "Login", user_session_path, class: "dropdown-item" %>
-              <% end %>
-            </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-    <%= yield %>
-
-      <div class="footer">
-      <div class="footer-links">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-      </div>
-      <div class="footer-copyright">
-        This footer is made with <i class="fas fa-heart"></i> at Le Wagon
-      </div>
-      <div class="col-md-4">
-      <p>Contact us: contact@debngo.org</p>
-    </div>
-
+   <%= render 'shared/navbar' %>
+      <%= yield %>
   </body>
 </html>

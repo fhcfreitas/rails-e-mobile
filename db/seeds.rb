@@ -9,7 +9,6 @@
 #   end
 User.destroy_all
 owner = User.create!(email: "owner@owner.com", password: "123456")
-
 client = User.create!(email: "user@user.com", password: "123456")
 Product.create!(model: "E-bike Cruiser", price: 150, location: "Rio de Janeiro", category: "Bike", user: owner)
 Product.create!(model: "E-BIKE S", price: 180, location: "Lisbon", category: "Bike", user: owner)
