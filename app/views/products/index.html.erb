@@ -15,9 +15,9 @@
               <div class="card">
                 <img src="<%= cl_image_path product.photo.key, height: 300, crop: :fill %>" class="card-img-top" alt="product">
                 <div class="card-body">
-                  <h5 class="card-title"><%= product.model %></h5>
-                  <p class="card-text"><strong>Location:</strong> <%= product.location %></p>
-                  <p class="card-text"><strong>Price:</strong> <%= product.price %></p>
+                  <h5 class="card-title mb-3"><strong><%= product.model %></strong></h5>
+                  <p class="card-text"><i>Location: <%= product.location %></i></p>
+                  <p class="card-text"><i>Price: <u><%= product.price %></u></i></p>
                 </div>
               </div>
             <% end %>
