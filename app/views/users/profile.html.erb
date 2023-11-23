@@ -2,7 +2,15 @@
 
 <h1>User Profile</h1>
 <p>Email: <%= @user.email %></p>
- <%@user.rents_as_owner.each do |rent|%>
-<p>Start date: <%= rent.start_date %></p>
-<p>Status: <%= rent.status %></p>
- <%end%>
+
+<% @user.rents_as_owner.each do |rent| %>
+  <p>Start date: <%= rent.start_date %></p>
+  <p>Status: <%= rent.status %></p>
+
+  <% if rent.status == "pending" %>
+    <p>
+      <%= button_to "Accept", accept_rental_path(rent), method: :patch %>
+      <%= button_to "Decline", decline_rental_path(rent), method: :patch %>
+    </p>
+  <% end %>
+<% end %>

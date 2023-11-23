@@ -13,6 +13,18 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :edit, :update, :new, :create] do
     resources :rentals, only: [:new, :create]
   end
+
+  resources :rentals do
+    member do
+      patch :accept
+    end
+  end
+
+  resources :rentals do
+    member do
+      patch :decline
+    end
+  end
   # Defines the root path route ("/")
   # root "posts#index"
 end
