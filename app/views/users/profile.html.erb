@@ -1,18 +1,38 @@
 <!-- FILEPATH: /home/carol/code/carolscliar/rails-e-mobile/app/views/users/profile.html.erb -->
 
-<h1>User Profile</h1>
-<p>Email: <%= @user.email %></p>
+<h1>Rentals requests</h1>
+<p> Your Email: <%= @user.email %></p>
 
+<div class="d-flex" style="
+    justify-content: space-evenly">
+  <% @user.rents_as_owner.each do |rent| %>
+  <div>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path rent.product.photo.key, height: 300, crop: :fill %>')">
+    </div>
+      <p>Start date: <%= rent.start_date %></p>
+      <p>End date: <%= rent.finish_date %></p>
+      <p>Status: <u><%= rent.status %></u></p>
+      <p>Client Email: <%=rent.user.email%></p>
 
-<% @user.rents_as_owner.each do |rent| %>
-  <p>Start date: <%= rent.start_date %></p>
-  <p>Status: <%= rent.status %></p>
-  <%=rent.user.email%>
-
-  <% if rent.status == "pending" %>
-    <p>
-      <%= button_to "Accept", accept_rental_path(rent), method: :patch %>
-      <%= button_to "Decline", decline_rental_path(rent), method: :patch %>
-    </p>
+    <% if rent.status == "pending" %>
+      <p>
+        <%= button_to "Accept", accept_rental_path(rent), method: :patch %>
+        <%= button_to "Decline", decline_rental_path(rent), method: :patch %>
+      </p>
+    <% end %>
+  </div>
   <% end %>
+</div>
+
+<h2>Your products</h2>
+<div class= "d-flex" style="
+    justify-content: space-evenly">
+<% @user.products.each do |product| %>
+<div class="card">
+  <p>Name: <%= product.model %></p>
+  <p>Description: <%= product.description %></p>
+  <p>Price: <%= product.price %></p>
+  <%= cl_image_tag product.photo.key, height: 300, width: 300 %>
+</div>
 <% end %>
+</div>
