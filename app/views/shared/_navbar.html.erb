@@ -7,6 +7,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <%= form_tag(products_path, method: :get) do %>
+      <%= text_field_tag :query, params[:query], placeholder: 'Search by location, price, or category' %>
+      <%= submit_tag 'Search', class: 'btn btn-primary' %>
+    <% end %>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>

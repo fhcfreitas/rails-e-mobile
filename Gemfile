@@ -58,6 +58,8 @@ gem "cloudinary"
 # gems added for datepicker functionality by Nikolai
 gem "bootstrap-datepicker-rails"
 
+# PG seacrh add by Fabio
+gem "pg_search"
 
 group :development, :test do
   gem "dotenv-rails"
