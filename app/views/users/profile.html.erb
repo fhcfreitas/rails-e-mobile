@@ -3,9 +3,11 @@
 <h1>User Profile</h1>
 <p>Email: <%= @user.email %></p>
 
+
 <% @user.rents_as_owner.each do |rent| %>
   <p>Start date: <%= rent.start_date %></p>
   <p>Status: <%= rent.status %></p>
+  <%=rent.user.email%>
 
   <% if rent.status == "pending" %>
     <p>
