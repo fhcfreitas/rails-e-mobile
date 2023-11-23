@@ -9,7 +9,7 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.product = @product
     @rental.user = current_user
-
+    @rental.status = "pending"
     if @rental.save
       redirect_to products_path
     else
@@ -23,19 +23,19 @@ class RentalsController < ApplicationController
     # atualizar o status para accepted
     @rental.status = "accepted"
     if @rental.save
-       flash[:notice] =  "Rental accepted"
-       redirect_to profile_path
+      flash[:notice] = "Rental accepted"
+      redirect_to profile_path
     end
   end
 
   def decline
-
     @rental = Rental.find(params[:id])
     @rental.status = "declined"
     if @rental.save
-      flash[:notice] =  "Rental declined"
-   end
+      flash[:notice] = "Rental declined"
+    end
   end
+
   private
 
   def set_product
@@ -43,6 +43,6 @@ class RentalsController < ApplicationController
   end
 
   def rental_params
-   params.require(:rental).permit(:start_date, :finish_date)
+    params.require(:rental).permit(:start_date, :finish_date)
   end
 end
