@@ -4,8 +4,8 @@ class Product < ApplicationRecord
   has_one_attached :photo
 
   include PgSearch::Model
-  pg_search_scope :search_by_location_and_price_category,
-  against: [ :location, :price, :category ],
+  pg_search_scope :search_by_location_and_category,
+  against: [ :location, :category ],
   using: {
     tsearch: { prefix: true }
   }

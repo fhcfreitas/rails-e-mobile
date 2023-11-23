@@ -20,11 +20,9 @@ class ProductsController < ApplicationController
   end
 
   def index
-    if params[:query].present?
-      @products = Product.search_by_location_and_price_category(params[:queryß])
-    else
-      @products = Product.all
-    end
+    @products = Product.all
+    @products = @products.search_by_location_and_category(params[:location]) if params[:location].present?
+    @products = @products.search_by_location_and_category(params[:category]) if params[:category].present?
   end
 
   def edit

@@ -7,10 +7,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <%= form_tag(products_path, method: :get) do %>
-      <%= text_field_tag :query, params[:query], placeholder: 'Search by location, price, or category' %>
-      <%= submit_tag 'Search', class: 'btn btn-primary' %>
-    <% end %>
+<%= form_tag(products_path, method: :get) do %>
+  <div class="rounded-box p-3" style="background-color: white; border: 1px solid #ddd; border-radius: 10px;">
+    <div class="input-group">
+      <%= text_field_tag :location, params[:location], class: 'form-control', placeholder: 'Location' %>
+      <%= text_field_tag :category, params[:category], class: 'form-control', placeholder: 'Category' %>
+      <div class="input-group-append">
+        <%= button_tag(type: 'submit', class: 'btn btn-dark') do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
