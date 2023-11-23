@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @user = current_user if user_signed_in?
   end
 
   def index
