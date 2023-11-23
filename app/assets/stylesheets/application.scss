@@ -16,24 +16,57 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 300px;
-  padding: 0px 50px;
+  height: 240px;
+  padding: 50px;
   color: rgba(252, 245, 245, 0.86);
+  position: relative;
+  top: auto;
+  margin-top: auto;
 }
+
 .footer-links {
   display: flex;
   align-items: center;
 }
+
 .footer-links a {
-  color: rgb(154, 181, 210);
-  opacity: 0.15;
+  color: rgb(131, 172, 218);
+  opacity: 0.8;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
 }
+
 .footer-links a:hover {
   opacity: 1;
 }
-.footer .fa-heart {
-  color: #D23333;
+
+.footer .last-line {
+  display: flex;
+  align-items: center;
+}
+
+.footer-links p {
+  margin: 0;
+  margin-right: 10px;
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.footer .last-line p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.footer .last-line a {
+  color: rgb(176, 204, 228);
+  text-decoration: none;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.footer .last-line a:hover {
+  text-decoration: underline;
+  color: rgb(176, 204, 228);
 }
