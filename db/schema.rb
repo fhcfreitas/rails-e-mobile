@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_171249) do
   end
 
   create_table "rentals", force: :cascade do |t|
-    t.string "status", default: "pending"
+    t.string "status"
     t.date "start_date"
     t.date "finish_date"
     t.bigint "user_id", null: false

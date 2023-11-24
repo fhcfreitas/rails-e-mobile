@@ -1,0 +1,8 @@
+<div class="container col-12 mt-4">
+<h3>Rent your E-Mobile</h3>
+<%= simple_form_for ([@product, @rental]) do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :finish_date %>
+  <%= f.button :submit %>
+<% end %>
+</div>

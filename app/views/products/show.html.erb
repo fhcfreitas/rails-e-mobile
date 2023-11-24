@@ -26,7 +26,13 @@
           <p class="price bottom-0 end-0 position-absolute"><strong>Price:</strong> <u><%= @product.price %></u></p>
         </div>
       </div>
+<<<<<<< HEAD
       <div class="renting">
+=======
+        <p class="price position-absolute"><strong>$</strong> <u><%= @product.price %></u></p>
+    </div>
+    <div class="renting">
+>>>>>>> master
         <% if user_signed_in? && @product.user != @user %>
           <%= render 'rentals/new' %>
         <% end %>
