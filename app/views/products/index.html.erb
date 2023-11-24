@@ -12,12 +12,12 @@
         <% @products.each do |product| %>
           <div class="col-3 mb-4">
             <%= link_to product_path(product), class: "product-link" do %>
-              <div class="card">
-                <img src="<%= cl_image_path product.photo.key, height: 300, crop: :fill %>" class="card-img-top" alt="product">
-                <div class="card-body">
-                  <h5 class="card-title mb-3"><strong><%= product.model %></strong></h5>
-                  <p class="card-text"><i>Location: <%= product.location %></i></p>
-                  <p class="card-text"><i>Price: <u><%= product.price %></u></i></p>
+              <div class="card card-index position-relative shadow">
+                <img src="<%= cl_image_path product.photo.key, height: 300, crop: :fill %>" class="img-index card-img-top" alt="product">
+                <div class="card-body p-4">
+                  <h5 class="card-title mb-2"><strong><%= product.model %></strong></h5>
+                  <p class="location card-text"><i class="fa-solid fa-location-dot"></i> <%= product.location %></p>
+                  <p class="price-index card-text position-absolute"><strong>$ </strong><u><%= product.price.to_i %></u></p>
                 </div>
               </div>
             <% end %>
