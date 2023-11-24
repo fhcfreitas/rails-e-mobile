@@ -20,16 +20,28 @@
               data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
           <% end %>
         </div>
+          <div class="toggle-rent-button mt-4">
+            <button class='btn btn-primary' id='rentButton'>Rent Now</button>
+          </div>
+          <p class="price bottom-0 end-0 position-absolute"><strong>Price:</strong> <u><%= @product.price %></u></p>
+        </div>
       </div>
-        <p class="price bottom-0 end-0 position-absolute"><strong>Price:</strong> <u><%= @product.price %></u></p>
-    </div>
-    <div class="renting">
+      <div class="renting">
         <% if user_signed_in? && @product.user != @user %>
-          <%# <p><%= link_to "RENT NOW", new_product_rental_path(@product) %>
-           <%= render 'rentals/new' %>
+          <%= render 'rentals/new' %>
         <% end %>
+      </div>
     </div>
   </div>
+</div>
 
-</div>
-</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const rentButton = document.getElementById('rentButton');
+    const rentingContainer = document.querySelector('.renting');
+
+    rentButton.addEventListener('click', function() {
+      rentingContainer.classList.toggle('hidden');
+    });
+  });
+</script>
