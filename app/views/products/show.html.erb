@@ -1,6 +1,6 @@
 <div class="entire-show m-5 p-3 d-flex justify-content-center">
  <div class="show-container shadow card m-1 p-3">
-  <div class="row">
+  <div class="row" data-controller="toggle">
     <div class="col-md-5">
       <img src="<%= cl_image_path @product.photo.key, height: 400, crop: :fill %>" class="card-img-top" alt="product">
     </div>
@@ -21,18 +21,12 @@
           <% end %>
         </div>
           <div class="toggle-rent-button mt-4">
-            <button class='btn btn-primary' id='rentButton'>Rent Now</button>
+            <button class='btn btn-primary' id='rentButton' data-toggle-target='Rentbtn' data-action="click->toggle#open">Rent Now</button>
           </div>
           <p class="price bottom-0 end-0 position-absolute"><strong>Price:</strong> <u><%= @product.price %></u></p>
         </div>
       </div>
-<<<<<<< HEAD
-      <div class="renting">
-=======
-        <p class="price position-absolute"><strong>$</strong> <u><%= @product.price %></u></p>
-    </div>
-    <div class="renting">
->>>>>>> master
+      <div class="renting d-none" data-toggle-target='rentform'>
         <% if user_signed_in? && @product.user != @user %>
           <%= render 'rentals/new' %>
         <% end %>
@@ -40,14 +34,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const rentButton = document.getElementById('rentButton');
-    const rentingContainer = document.querySelector('.renting');
-
-    rentButton.addEventListener('click', function() {
-      rentingContainer.classList.toggle('hidden');
-    });
-  });
-</script>
