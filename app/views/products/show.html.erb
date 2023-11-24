@@ -21,7 +21,7 @@
           <% end %>
         </div>
       </div>
-        <p class="price bottom-0 end-0 position-absolute"><strong>Price:</strong> <u><%= @product.price %></u></p>
+        <p class="price position-absolute"><strong>$</strong> <u><%= @product.price %></u></p>
     </div>
     <div class="renting">
         <% if user_signed_in? && @product.user != @user %>

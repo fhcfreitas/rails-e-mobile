@@ -1,3 +1,25 @@
 .show-container {
   background-color: #eaeaea;
 }
+
+.price {
+  right: 0px;
+  bottom: 8px;
+  font-size: 18px;
+}
+
+.price-index {
+  font-size: 17px;
+  bottom: 3px;
+  right: 8px;
+}
+
+.img-index {
+  height: 170px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-index {
+  height: 320px; /* Defina a altura desejada */
+}
