@@ -3,11 +3,12 @@
     <%= link_to products_path do %>
       <%= image_tag "E-Mobile_logo.png", alt: "logo", width: 130 %>
     <% end %>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-  <%= render 'shared/searchbar' %>
+    <%= render 'shared/searchbar' %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">

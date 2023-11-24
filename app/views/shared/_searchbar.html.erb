@@ -1,10 +1,10 @@
-<%= form_tag(products_path, method: :get) do %>
+<%= form_with(url: products_path, method: :get, local: false) do |form| %>
   <div class="rounded-box m-2" style="background-color: white; border: 1px solid #ddd; border-radius: 5px;">
     <div class="input-group">
-      <%= text_field_tag :location, params[:location], class: 'form-control', class: 'form-control custom-placeholder', placeholder: 'Location' %>
-      <%= text_field_tag :category, params[:category], class: 'form-control', class: 'form-control custom-placeholder', placeholder: 'Bike or Car' %>
+      <%= form.text_field :location, value: params[:location], class: 'form-control custom-placeholder', placeholder: 'Location' %>
+      <%= form.text_field :category, value: params[:category], class: 'form-control custom-placeholder', placeholder: 'E-Motorbike or Electric Car' %>
       <div class="input-group-append">
-        <%= button_tag(type: 'submit', class: 'btn btn-dark') do %>
+        <%= form.button type: 'submit', class: 'btn btn-dark' do %>
           <i class="fas fa-search"></i>
         <% end %>
       </div>
