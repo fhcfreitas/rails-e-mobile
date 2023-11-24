@@ -1,7 +1,8 @@
 <!-- FILEPATH: /home/carol/code/carolscliar/rails-e-mobile/app/views/users/profile.html.erb -->
 
-<h1>Rentals requests</h1>
-<p> Your Email: <%= @user.email %></p>
+<div style="text-align: center; margin-top: 15px; margin-bottom: 25px">
+  <h1>Rentals requests</h1>
+</div>
 
 <div class="d-flex" style="
     justify-content: space-evenly">
@@ -9,7 +10,7 @@
   <div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path rent.product.photo.key, height: 300, crop: :fill %>')">
     </div>
-      <p>Start date: <%= rent.start_date %></p>
+      <p style="margin-top: 15px;">Start date: <%= rent.start_date %></p>
       <p>End date: <%= rent.finish_date %></p>
       <p>Status: <u><%= rent.status %></u></p>
       <p>Client Email: <%=rent.user.email%></p>
@@ -23,16 +24,17 @@
   </div>
   <% end %>
 </div>
-
+<div style="text-align: center; margin-top: 15px; margin-bottom: 25px">
 <h2>Your products</h2>
+</div>
 <div class= "d-flex" style="
     justify-content: space-evenly">
 <% @user.products.each do |product| %>
-<div class="card">
-  <p>Name: <%= product.model %></p>
-  <p>Description: <%= product.description %></p>
-  <p>Price: <%= product.price %></p>
-  <%= cl_image_tag product.photo.key, height: 300, width: 300 %>
-</div>
+  <div class="card">
+    <p>Name: <%= product.model %></p>
+    <p>Description: <%= product.description %></p>
+    <p>Price: <%= product.price %></p>
+    <%= cl_image_tag product.photo.key, height: 300, width: 300 %>
+  </div>
 <% end %>
 </div>

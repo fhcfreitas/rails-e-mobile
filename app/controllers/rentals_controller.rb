@@ -33,6 +33,7 @@ class RentalsController < ApplicationController
     @rental.status = "declined"
     if @rental.save
       flash[:notice] = "Rental declined"
+      redirect_to profile_path
     end
   end
 
