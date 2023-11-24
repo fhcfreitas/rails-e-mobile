@@ -1,35 +1,38 @@
 <div class="entire-show m-5 p-3 d-flex justify-content-center">
- <div class="show-container shadow card m-1 p-3">
-  <div class="row">
-    <div class="col-md-5">
-      <img src="<%= cl_image_path @product.photo.key, height: 400, crop: :fill %>" class="card-img-top" alt="product">
-    </div>
-    <div class="col-md-6 position-relative">
-      <div class="card-body">
-        <h2 class="mb-4"><strong><%= @product.model %></strong></h2>
-        <p><strong>Location:</strong> <%= @product.location %></p>
-        <p><strong>Category:</strong> <%= @product.category %></p>
-        <p><strong>Description:</strong> <%= @product.description %></p>
+  <div class="show-container shadow card m-1 p-3">
+    <div class="row" data-controller="toggle">
+      <div class="col-md-5">
+        <img src="<%= cl_image_path @product.photo.key, height: 400, crop: :fill %>" class="card-img-top" alt="product">
+      </div>
+      <div class="col-md-6 position-relative">
+        <div class="card-body">
+          <h2 class="mb-4"><strong><%= @product.model %></strong></h2>
+          <p><strong>Location:</strong> <%= @product.location %></p>
+          <p><strong>Category:</strong> <%= @product.category %></p>
+          <p><strong>Description:</strong> <%= @product.description %></p>
 
+          <div class="button mt-4">
+            <% if user_signed_in? && @product.user_id == @user.id %>
+              <%= link_to "Edit", edit_product_path(@product), class: "btn btn-primary" %>
+              <%= link_to "Delete",
+                product_path(@product), class: "btn btn-danger",
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            <% end %>
+          </div>
 
-        <div class="button mt-4">
-          <% if user_signed_in? && @product.user_id == @user.id %>
-            <%= link_to "Edit", edit_product_path(@product), class: "btn btn-primary" %>
-            <%= link_to "Delete",
-              product_path(@product), class: "btn btn-danger",
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-          <% end %>
+          <div class="toggle-rent-button mt-4">
+            <% if user_signed_in? && @product.user != @user %>
+              <button class='btn btn-primary' id='rentButton' data-toggle-target='Rentbtn' data-action="click->toggle#open">Rent Now</button>
+            <% end %>
+          </div>
+          <p class="price bottom-0 end-0 position-absolute"><strong>Price:</strong> <u><%= @product.price %></u></p>
         </div>
       </div>
-        <p class="price position-absolute"><strong>$</strong> <u><%= @product.price %></u></p>
-    </div>
-    <div class="renting">
+      <div class="renting d-none" data-toggle-target='rentform'>
         <% if user_signed_in? && @product.user != @user %>
-          <%# <p><%= link_to "RENT NOW", new_product_rental_path(@product) %>
-           <%= render 'rentals/new' %>
+          <%= render 'rentals/new' %>
         <% end %>
+      </div>
     </div>
   </div>
-
-</div>
 </div>

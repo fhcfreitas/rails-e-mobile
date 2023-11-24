@@ -1,8 +1,8 @@
 <div class="container col-12 mt-4">
 <h3><strong>RENT NOW</strong></h3>
 <%= simple_form_for ([@product, @rental]) do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :finish_date %>
+  <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :finish_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 </div>
