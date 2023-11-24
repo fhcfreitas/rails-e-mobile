@@ -1,40 +1,55 @@
 <!-- FILEPATH: /home/carol/code/carolscliar/rails-e-mobile/app/views/users/profile.html.erb -->
 
 <div style="text-align: center; margin-top: 15px; margin-bottom: 25px">
-  <h1>Rentals requests</h1>
+  <h1>Rental requests</h1>
 </div>
 
 <div class="d-flex" style="
     justify-content: space-evenly">
-  <% @user.rents_as_owner.each do |rent| %>
-  <div>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path rent.product.photo.key, height: 300, crop: :fill %>')">
-    </div>
-      <p style="margin-top: 15px;">Start date: <%= rent.start_date %></p>
-      <p>End date: <%= rent.finish_date %></p>
-      <p>Status: <u><%= rent.status %></u></p>
-      <p>Client Email: <%=rent.user.email%></p>
 
-    <% if rent.status == "pending" %>
-      <p>
-        <%= button_to "Accept", accept_rental_path(rent), method: :patch %>
-        <%= button_to "Decline", decline_rental_path(rent), method: :patch %>
-      </p>
-    <% end %>
-  </div>
+
+  <% @user.rents_as_owner.each do |rent| %>
+
+    <div class="cartao">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path rent.product.photo.key, height: 300, crop: :fill %>')">
+      </div>
+        <p style="margin-top: 15px;">Start date: <%= rent.start_date %></p>
+        <p>End date: <%= rent.finish_date %></p>
+        <p>Status: <u><%= rent.status %></u></p>
+        <p>Client e-mail: <%=rent.user.email%></p>
+
+      <% if rent.status == "pending" %>
+
+        <div class="d-flex justify-content-center">
+          <%= button_to "Accept", accept_rental_path(rent), method: :patch, class: "btn btn-primary" %>
+          <%= button_to "Decline", decline_rental_path(rent), method: :patch, class: "btn btn-danger", style: "margin-left: 10px;" %>
+        </div>
+
+      <% end %>
+    </div>
+
   <% end %>
+
+
 </div>
 <div style="text-align: center; margin-top: 15px; margin-bottom: 25px">
 <h2>Your products</h2>
 </div>
-<div class= "d-flex" style="
-    justify-content: space-evenly">
-<% @user.products.each do |product| %>
-  <div class="card">
-    <p>Name: <%= product.model %></p>
-    <p>Description: <%= product.description %></p>
-    <p>Price: <%= product.price %></p>
-    <%= cl_image_tag product.photo.key, height: 300, width: 300 %>
-  </div>
-<% end %>
+<div class= "d-flex" style="justify-content: space-evenly">
+
+  <% @user.products.each do |product| %>
+    <div class="" style="width: 300px;">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path product.photo.key, height: 300, crop: :fill %>')">
+      </div>
+
+        <p>Name: <%= product.model %></p>
+        <p>Description: <%= product.description %></p>
+        <p>Price: <%= product.price %></p>
+    </div>
+
+  <% end %>
 </div>
+
+  <div style="text-align: center; margin-top: 15px; margin-bottom: 25px">
+    <%= link_to "Add Product", new_product_path, class: "btn btn-primary" %>
+  </div>

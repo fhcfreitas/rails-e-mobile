@@ -9,4 +9,11 @@ class Product < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
+  validates :model, presence: true
+  validates :description, presence: true
+  validates :price, presence: true, numericality: { greater_than: 0 }
+  validates :location, presence: true
+  validates :category, presence: true
+  validates :photo, presence: true
 end
