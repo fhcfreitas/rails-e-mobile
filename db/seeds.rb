@@ -17,7 +17,7 @@ product1 = Product.new(model: "E-BIKE Lev", description: 'Moto bonita', price: 1
 product1.photo.attach(io: file1, filename: "nes.png", content_type: "image/png")
 product1.save!
 file2 = URI.open("https://c0.klipartz.com/pngpicture/950/505/gratis-png-tesla.png")
-product2 = Product.new(model: "Tesla", description: 'Moto bonita', price: 15_000, location: "London", category: "Electric Car", user: owner)
+product2 = Product.new(model: "Tesla", description: 'Moto bonita', price: 15000, location: "London", category: "Electric Car", user: owner)
 product2.photo.attach(io: file2, filename: "nes.png", content_type: "image/png")
 product2.save!
 file3 = URI.open("https://img.irroba.com.br/fit-in/900x700/filters:format(webp):fill(fff):quality(80)/levbaaia/catalog/api/app-12641/64a62f2791643.jpg")
