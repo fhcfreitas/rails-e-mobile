@@ -24,7 +24,13 @@ class ProductsController < ApplicationController
     @products = Product.all
     @products = @products.search_by_location_and_category(params[:location]) if params[:location].present?
     @products = @products.search_by_location_and_category(params[:category]) if params[:category].present?
+
+    # If you want to filter by both location and category when both are present
+    if params[:location].present? && params[:category].present?
+      @products = @products.search_by_location_and_category(params[:location]).search_by_location_and_category(params[:category])
+    end
   end
+
 
   def edit
   end
